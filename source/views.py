@@ -14,13 +14,13 @@ from .ui.window import Ui_Window
 
 FILTERS = ";;".join(
     (
+        "All Files (*.*)",
         "PNG Files (*.png)",
         "JPEG Files (*.jpeg)",
         "JPG Files (*.jpg)",
         "GIF Files (*.gif)",
         "Text Files (*.txt)",
         "Python Files (*.py)",
-        "All Files (*.*)",
     )
 )
 
@@ -74,6 +74,7 @@ class Window(QWidget, Ui_Window):
         self._thread.started.connect(self._renamer.renameFiles)
         # Update state
         self._renamer.renamedFile.connect(self._updateStateWhenFileRenamed)
+        self._renamer.progressed.connect(self._updateProgressBar)
         # Clean up
         self._renamer.finished.connect(self._thread.quit)
         self._renamer.finished.connect(self._renamer.deleteLater)
@@ -85,3 +86,7 @@ class Window(QWidget, Ui_Window):
         self._files.popleft()
         self.srcFileList.takeItem(0)
         self.dstFileList.addItem(str(newFile))
+
+    def _updateProgressBar(self, fileNumber):
+        progressPercent = int(fileNumber / self._filesCount * 100)
+        self.progressBar.setValue(progressPercent)
