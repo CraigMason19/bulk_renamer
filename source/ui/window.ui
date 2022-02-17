@@ -61,7 +61,7 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QLabel" name="label_2">
@@ -81,7 +81,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="label_3">
@@ -155,7 +155,7 @@
     </widget>
    </item>
    <item row="4" column="2" colspan="2">
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="renameFilesButton">
      <property name="minimumSize">
       <size>
        <width>0</width>
