@@ -1,1 +1,4 @@
 **/__pycache__
+renamer.spec
+build/
+dist/
